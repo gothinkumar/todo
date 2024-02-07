@@ -1,0 +1,3 @@
+    # path('',views.index,name='home'),
+    # path('delete/<int:d_id>/',views.delt,name='delt'),
+    # path('update/<int:u_id>/',views.update,name='update'),

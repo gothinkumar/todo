@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row taskcenter">
+            <div class="col-md-6 taskbox">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <h3>Are you sure wants to delete your task?</h3>
+                    </div>
+                    <div class="col-md-2 mt-3">
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </div>
+                    <div class="col-md-2 mt-3">
+                        <a class="btn btn-secondary" href="{% url 'todoapp:home' %}">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

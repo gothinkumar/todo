@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 px-3">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="taskbox">
+                    <div class="boxchild">
+                        <input type="text" name="task" placeholder="Enter the task" required>
+                    </div>
+                    <div class="boxchild mt-3">
+                        <input type="text" name="num" placeholder="Enter the number" required>
+                    </div>
+                    <div class="boxchild mt-3">
+                        <input type="date" name="dte" placeholder="Date to be done">
+                    </div>
+                    <div class="taskbut mt-3">
+                        <input class="btn btn-success" type="submit" value="submit">
+                    </div>
+                    <hr>
+                    <div class="taskbut mt-3" style="text-align: center;">
+                         <a class="btn btn-primary" href="{% url 'todoapp:create' %}">Create View </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 px-3">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Task to be completed</h3>
+                </div>
+                {% for i in obj %}
+                <div class="col-12 taskobj mt-2">
+                    <div class="row">
+                        <div class="col-12">
+                            {{ i.task }}
+                        </div>
+                        <div class="col-12 pt-2">
+                            {{ i.number }}
+                        </div>
+                        <div class="col-12 pt-2">
+                            {{ i.date }}
+                        </div>
+                        <div class="col-2 pt-3">
+                            <a class="btn btn-danger" href="{% url 'todoapp:delete' i.id %}">Delete</a>
+                        </div>
+                        <div class="col-2 pt-3">
+                            <a class="btn btn-primary" href="{% url 'todoapp:update' i.id %}">Update</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

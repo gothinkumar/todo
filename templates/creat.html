@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-success" type="submit">
+        <a class="btn btn-secondary" href="{% url 'todoapp:home' %}">Back</a>
+    </form>
+</div>
+
+{% endblock %}
